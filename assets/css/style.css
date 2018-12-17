@@ -1,0 +1,20 @@
+html, body {
+    height: 100%;
+}
+  
+body {
+    background: #ffffff;
+    display: flex;
+    flex-flow: column;
+}
+  
+
+#hangman{
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+    color: white;
+    font-size: 4vw;
+    background-repeat:no-repeat;
+    width:100%;
+    max-height:300px;
+}
