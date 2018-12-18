@@ -3,7 +3,9 @@ var answerArray = ["JAMES-HOLDEN", "NAOMI-NAGATA", "AMOS-BURTON", "ALEX-KAMAL", 
 var hintArray = ["Former XO of the ice hauler Canterbury.", "Former chief engineer of the ice hauler Canterbury.", "Raised as a street urchin in Baltimore.", "Former pilot with the MCRN, honorably discharged after 20 years.", "Corvette-class light frigate seized as legitimate salvage from the MCRN.", "Served as the United Nations Deputy Undersecretary of Executive Administration.", "Earth-born co-conspirator of Jules-Pierre Mao during the Eros incident.", "Separatist organization representing the various peoples of the asteroid belt and gas-giant moons.", "Private security force contracted to Ceres Station.", "Ceres-born detective rarely seen without his porkpie hat.", "Infectious agent of extra-terrestrial origin first discovered on Phoebe."];
 var incorrect = "";
 
-
+//Array store to display the URLs and pictures upon completing a specified clue
+var urlArray = ["http://expanse.wikia.com/wiki/Jim_Holden_(Books)","http://expanse.wikia.com/wiki/Naomi_Nagata_(Books)", "http://expanse.wikia.com/wiki/Amos_Burton_(Books)", "http://expanse.wikia.com/wiki/Alex_Kamal_(Books)", "http://expanse.wikia.com/wiki/Rocinante_(Books)", "http://expanse.wikia.com/wiki/Chrisjen_Avasarala_(Books)", "http://expanse.wikia.com/wiki/Sadavir_Errinwright_(Books)", "http://expanse.wikia.com/wiki/Outer_Planets_Alliance", "http://expanse.wikia.com/wiki/Star_Helix_Security", "http://expanse.wikia.com/wiki/Josephus_Miller_(Books)", "http://expanse.wikia.com/wiki/Protomolecule"];
+var picArray = ["assets/images/Holden.jpg", "assets/images/Nagata.jpg", "assets/images/Burton.jpg", "assets/images/Kamal.jpg", "assets/images/Rocinante.jpg", "assets/images/Avasarala.jpg", "assets/images/Errinwright.jpg", "assets/images/OPA.png", "assets/images/Star-Helix.png", "assets/images/Miller.jpg", "assets/images/Protomolecule.jpg"];
 
 //Attempting to create game as object, as specified in readme
 var guessGame = {
@@ -17,12 +19,16 @@ var guessGame = {
     splitAnswer: "",
     hiddenAnswer: "",
     spaces: 0,
+    winPic: "",
+    winUrl: "",
     initialize: function() {
         //Generates a random number to pull out an answer and hint
         var r = Math.floor(Math.random() * answerArray.length);
         guessGame.currentAnswer = answerArray[r];
         guessGame.hint = hintArray[r];
         guessGame.currentAnswer = this.currentAnswer;
+        guessGame.winPic = picArray[r];
+        guessGame.winUrl = urlArray[r];
 
         //Using an onload event handler to initialize some HTML content
         window.onload = function(){
@@ -79,6 +85,9 @@ var guessGame = {
         userGuess="";
         guessGame.initialize();
         guessGame.update();
+        document.getElementById("characterPic").innerHTML = "";
+        document.getElementById("characterUrl").innerHTML = "";
+        document.getElementById("resetBtn").innerHTML = "";
     
     //Updates the HTML window 
     },
@@ -91,7 +100,18 @@ var guessGame = {
         document.getElementById("disp").innerHTML = disp;
         document.getElementById("answer").innerHTML = "<h3>" + (guessGame.hiddenAnswer.join(" ")) + "</h3>";
         console.log(guessGame.hiddenAnswer);
-    },  
+    },
+    winDisplay: function(){
+        var winDispPic = 
+        "<img src=" + guessGame.winPic + ">";
+        document.getElementById("characterPic").innerHTML = winDispPic;
+        var winDispUrl = 
+        "<a href=" + guessGame.winUrl + ' target="_blank" class="btn btn-primary" style="text-align:center;width:25%">Click to visit the Wiki!</a>';
+        document.getElementById("characterUrl").innerHTML = winDispUrl;
+        var resetBtn = 
+        '<input type="button" class="btn btn-primary" onclick="guessGame.reset()" value="Click to reset!">';
+        document.getElementById("resetBtn").innerHTML = resetBtn;
+    }  
 }
 //End of guessGame object
 
@@ -103,6 +123,8 @@ console.log("Current Hint: " + guessGame.hint);
 console.log("Split Answer: " + guessGame.splitAnswer);
 console.log("Split Answer Length: " + guessGame.splitAnswer.length);
 console.log("Number of Spaces: " + guessGame.spaces);
+console.log(guessGame.winPic);
+console.log(guessGame.winUrl);
 
 //Primary logic for game
 document.onkeyup = function(event) {
@@ -125,7 +147,8 @@ document.onkeyup = function(event) {
                 if (guessGame.victoryCounter === (guessGame.splitAnswer.length - guessGame.spaces)){
                     guessGame.wins++;
                     alert ("Your score is: " + guessGame.wins + " wins");
-                    guessGame.reset();
+                    // guessGame.reset();
+                    guessGame.winDisplay();
                 }
             }
         }
