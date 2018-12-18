@@ -1,11 +1,11 @@
 //Initialize answers array with corresponding hints array. Important to note that the answer should be in all caps and that any spaces should be represented with a hyphen.
-var answerArray = ["JAMES-HOLDEN", "NAOMI-NAGATA", "AMOS-BURTON", "ALEX-KAMAL", "ROCINANTE", "CHRISJEN-AVASARALA", "SADAVIR-ERRINWRIGHT", "OUTER-PLANETS-ALLIANCE", "STAR-HELIX-SECURITY", "JOSEPHUS-MILLER", "PROTOMOLECULE"];
-var hintArray = ["Former XO of the ice hauler Canterbury.", "Former chief engineer of the ice hauler Canterbury.", "Raised as a street urchin in Baltimore.", "Former pilot with the MCRN, honorably discharged after 20 years.", "Corvette-class light frigate seized as legitimate salvage from the MCRN.", "Served as the United Nations Deputy Undersecretary of Executive Administration.", "Earth-born co-conspirator of Jules-Pierre Mao during the Eros incident.", "Separatist organization representing the various peoples of the asteroid belt and gas-giant moons.", "Private security force contracted to Ceres Station.", "Ceres-born detective rarely seen without his porkpie hat.", "Infectious agent of extra-terrestrial origin first discovered on Phoebe."];
+var answerArray = ["JAMES-HOLDEN", "NAOMI-NAGATA", "AMOS-BURTON", "ALEX-KAMAL", "ROCINANTE", "CHRISJEN-AVASARALA", "SADAVIR-ERRINWRIGHT", "OUTER-PLANETS-ALLIANCE", "STAR-HELIX-SECURITY", "JOSEPHUS-MILLER", "PROTOMOLECULE","CANTERBURY", "MARS-CONGRESSIONAL-REPUBLIC","ANDERSON-DAWES","TYCHO-STATION"];
+var hintArray = ["Former XO of the ice hauler Canterbury.", "Former chief engineer of the ice hauler Canterbury.", "Raised as a street urchin in Baltimore.", "Former pilot with the MCRN, honorably discharged after 20 years.", "Corvette-class light frigate seized as legitimate salvage from the MCRN.", "Served as the United Nations Deputy Undersecretary of Executive Administration.", "Earth-born co-conspirator of Jules-Pierre Mao during the Eros incident.", "Separatist organization representing the various peoples of the asteroid belt and gas-giant moons.", "Private security force contracted to Ceres Station.", "Ceres-born detective rarely seen without his porkpie hat.", "Infectious agent of extra-terrestrial origin first discovered on Phoebe.","Retooled water hauler, destroyed while on transit back to Ceres Station.", "Governing body of 'The Red Planet'.", "Worked as the OPA liaison on Ceres during the Eros Incident.","Largest mobile construction platform in the Sol system."];
 var incorrect = "";
 
 //Array store to display the URLs and pictures upon completing a specified clue
-var urlArray = ["http://expanse.wikia.com/wiki/Jim_Holden_(Books)","http://expanse.wikia.com/wiki/Naomi_Nagata_(Books)", "http://expanse.wikia.com/wiki/Amos_Burton_(Books)", "http://expanse.wikia.com/wiki/Alex_Kamal_(Books)", "http://expanse.wikia.com/wiki/Rocinante_(Books)", "http://expanse.wikia.com/wiki/Chrisjen_Avasarala_(Books)", "http://expanse.wikia.com/wiki/Sadavir_Errinwright_(Books)", "http://expanse.wikia.com/wiki/Outer_Planets_Alliance", "http://expanse.wikia.com/wiki/Star_Helix_Security", "http://expanse.wikia.com/wiki/Josephus_Miller_(Books)", "http://expanse.wikia.com/wiki/Protomolecule"];
-var picArray = ["assets/images/Holden.jpg", "assets/images/Nagata.jpg", "assets/images/Burton.jpg", "assets/images/Kamal.jpg", "assets/images/Rocinante.jpg", "assets/images/Avasarala.jpg", "assets/images/Errinwright.jpg", "assets/images/OPA.png", "assets/images/Star-Helix.png", "assets/images/Miller.jpg", "assets/images/Protomolecule.jpg"];
+var urlArray = ["http://expanse.wikia.com/wiki/Jim_Holden_(Books)","http://expanse.wikia.com/wiki/Naomi_Nagata_(Books)", "http://expanse.wikia.com/wiki/Amos_Burton_(Books)", "http://expanse.wikia.com/wiki/Alex_Kamal_(Books)", "http://expanse.wikia.com/wiki/Rocinante_(Books)", "http://expanse.wikia.com/wiki/Chrisjen_Avasarala_(Books)", "http://expanse.wikia.com/wiki/Sadavir_Errinwright_(Books)", "http://expanse.wikia.com/wiki/Outer_Planets_Alliance", "http://expanse.wikia.com/wiki/Star_Helix_Security", "http://expanse.wikia.com/wiki/Josephus_Miller_(Books)", "http://expanse.wikia.com/wiki/Protomolecule","http://expanse.wikia.com/wiki/Canterbury_(Books)", "http://expanse.wikia.com/wiki/Martian_Congressional_Republic","http://expanse.wikia.com/wiki/Anderson_Dawes_(Books)","http://expanse.wikia.com/wiki/Tycho_Station"];
+var picArray = ["assets/images/Holden.jpg", "assets/images/Nagata.jpg", "assets/images/Burton.jpg", "assets/images/Kamal.jpg", "assets/images/Rocinante.jpg", "assets/images/Avasarala.jpg", "assets/images/Errinwright.jpg", "assets/images/OPA.png", "assets/images/Star-Helix.png", "assets/images/Miller.jpg", "assets/images/Protomolecule.jpg","assets/images/Cant.jpg", "assets/images/MCR.png","assets/images/Dawes.jpg","assets/images/Tycho.png"];
 
 //Attempting to create game as object, as specified in readme
 var guessGame = {
@@ -106,10 +106,10 @@ var guessGame = {
         "<img src=" + guessGame.winPic + ">";
         document.getElementById("characterPic").innerHTML = winDispPic;
         var winDispUrl = 
-        '<input type="button" class="btn btn-primary text-center" value="Click to visit the wiki!"><a href=' + guessGame.winUrl + ' target="_blank" ></a>';
+        '<a href=' + guessGame.winUrl + ' target="_blank" class="btn-sm btn-primary text-center">Click to visit the wiki!</a>';
         document.getElementById("characterUrl").innerHTML = winDispUrl;
         var resetBtn = 
-        '<input type="button" class="btn btn-primary" onclick="guessGame.reset()" value="Click to reset!">';
+        '<input type="button" class="btn-sm btn-primary" onclick="guessGame.reset()" value="Click to reset!">';
         document.getElementById("resetBtn").innerHTML = resetBtn;
     }  
 }
