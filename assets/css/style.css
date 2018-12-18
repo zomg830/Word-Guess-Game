@@ -2,6 +2,10 @@ body, html{
     width:100%;
 }
 
+h3, p{
+    font-size: 1.2rem;
+}
+
 .jumbotron{
     min-height:100%;
     margin-bottom: 0;

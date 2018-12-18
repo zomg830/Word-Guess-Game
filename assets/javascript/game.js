@@ -38,7 +38,7 @@ var guessGame = {
             "<p>Number of Guesses Remaining: " + guessGame.guessesLeft + "</p>" + 
             "<p>Incorrect Guesses: " + incorrect + "</p>"
             document.getElementById("disp").innerHTML = disp;
-            document.getElementById("answer").innerHTML = "<h2>" + (guessGame.hiddenAnswer.join(" ")) + "</h2>";
+            document.getElementById("answer").innerHTML = "<h3>" + (guessGame.hiddenAnswer.join(" ")) + "</h3>";
         }
 
         //Calculates the number of spaces for the win condition logic
@@ -106,7 +106,7 @@ var guessGame = {
         "<img src=" + guessGame.winPic + ">";
         document.getElementById("characterPic").innerHTML = winDispPic;
         var winDispUrl = 
-        "<a href=" + guessGame.winUrl + ' target="_blank" class="btn btn-primary" style="text-align:center;width:25%">Click to visit the Wiki!</a>';
+        '<input type="button" class="btn btn-primary text-center" value="Click to visit the wiki!"><a href=' + guessGame.winUrl + ' target="_blank" ></a>';
         document.getElementById("characterUrl").innerHTML = winDispUrl;
         var resetBtn = 
         '<input type="button" class="btn btn-primary" onclick="guessGame.reset()" value="Click to reset!">';
