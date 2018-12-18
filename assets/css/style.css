@@ -1,20 +1,47 @@
-html, body {
-    height: 100%;
-}
-  
-body {
-    background: #ffffff;
-    display: flex;
-    flex-flow: column;
-}
-  
-
-#hangman{
-    box-sizing: border-box;
-    font-family: 'Space Mono', monospace;
-    color: white;
-    font-size: 4vw;
-    background-repeat:no-repeat;
+body, html{
     width:100%;
-    max-height:300px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding:1vw;
+    /* Set the fixed height of the footer here */
+    max-height: 10vw;
+    background-color: #f5f5f5;
+}
+
+.navbar{
+    width:100%;
+}
+
+#github a{
+    justify-content: space-evenly;
+    align-content: center;
+    vertical-align: middle;
+    margin-left:0.5vw;
+    margin-right:0.5vw;
+}
+
+#github a:link{
+    color:lightblue;
+}
+
+#github a:visited{
+    color:lightblue;
+}
+
+.container{
+    max-height:10vw;
+}
+
+.row{
+    max-height:3.5vw;
+    padding:0;
+}
+
+#copyright{
+    font-family:font-family: 'Space Mono', monospace;
+    color:white;
 }
