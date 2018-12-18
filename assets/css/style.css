@@ -50,10 +50,6 @@ h3, p{
     color:lightblue;
 }
 
-.container-fluid{
-    min-height:100%;
-}
-
 .row{
     max-height:auto;
     /* padding:0; */
@@ -65,7 +61,7 @@ h3, p{
 }
 
 #characterPic img{
-    max-width:50vh;
+    max-width:57.5vw;
     position:relative;
     padding:5px;
     display:block;
@@ -74,9 +70,19 @@ h3, p{
 
 #logo{
     max-height:100vh;
-    max-width:38.75vw;
+    max-width:50vw;
 }
 
-#resetBtn{
-    margin-top:10px;
+#buttons{
+    margin:auto;
+    width:60vw;
+}
+
+#resetBtn, #characterUrl{
+    margin:0;
+    padding:0;
+}
+
+#resetBtn a, #characterUrl a{
+    font-size:2vw;
 }
