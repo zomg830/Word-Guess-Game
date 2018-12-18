@@ -64,7 +64,7 @@ h3, p{
     color:white;
 }
 
-#characterPic img, #characterUrl a{
+#characterPic img{
     max-width:50vh;
     position:relative;
     padding:5px;
@@ -75,4 +75,8 @@ h3, p{
 #logo{
     max-height:100vh;
     max-width:38.75vw;
+}
+
+#resetBtn{
+    margin-top:10px;
 }

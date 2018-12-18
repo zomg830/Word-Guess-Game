@@ -106,10 +106,10 @@ var guessGame = {
         "<img src=" + guessGame.winPic + ">";
         document.getElementById("characterPic").innerHTML = winDispPic;
         var winDispUrl = 
-        '<a href=' + guessGame.winUrl + ' target="_blank" class="btn-sm btn-primary text-center">Click to visit the wiki!</a>';
+        '<a href=' + guessGame.winUrl + ' target="_blank" class="btn-sm btn-primary">Click to visit the wiki!</a>';
         document.getElementById("characterUrl").innerHTML = winDispUrl;
         var resetBtn = 
-        '<input type="button" class="btn-sm btn-primary" onclick="guessGame.reset()" value="Click to reset!">';
+        '<a href="#" class="btn-sm btn-primary" onclick="guessGame.reset()">Click to reset!</a>';
         document.getElementById("resetBtn").innerHTML = resetBtn;
     }  
 }
@@ -155,7 +155,7 @@ document.onkeyup = function(event) {
         if (counter === 0){
             guessGame.guessesLeft = guessGame.guessesLeft - 1;
             guessGame.lettersUsed += userGuess;
-            incorrect += userGuess;
+            incorrect += " " + userGuess;
             guessGame.update();
         }
         counter = 0;
