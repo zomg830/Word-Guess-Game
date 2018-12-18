@@ -10,4 +10,14 @@ In this assignment, I created a "Word Guess" game similar to the classic game "H
 
 * Set in the future of the 24th Century, the story follows James Holden and his crew as they fight for survival and become entangled in web after web of political intrigue and nefarious corporate experimentation.
 
+### How to Play
+
+* To play the game, simply load the web page and begin typing to guess the word. Use the clue as a guideline and if you have no background in The Expanse lore, feel free to check out the [wiki page](http://expanse.wikia.com/wiki/The_Expanse_Wiki).
+
+* If you don't guess the correct answer, the web page will reset and another random word and clue will be generated. If you successfully guess the clue, an image and link to the wiki will be generated, click the reset button to generate another clue.
+
+### Credits and Acknowledgements
+
+* I would like to thank the instructors and TAs at The Coding Bootcamp at UT Austin for introducing me to the concepts and knowledge needed to create this game. 
+
 

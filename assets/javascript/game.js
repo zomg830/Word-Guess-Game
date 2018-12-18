@@ -57,7 +57,7 @@ var guessGame = {
         //Sort through the array to format the display of spaces in the HTML page
         for (i = 0; i < guessGame.currentAnswer.length; i++){
             if (guessGame.currentAnswer[i] === "-"){
-                guessGame.hiddenAnswer[i] = "-";
+                guessGame.hiddenAnswer[i] = "&nbsp";
             }
         }
 
