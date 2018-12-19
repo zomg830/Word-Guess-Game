@@ -85,6 +85,16 @@ var guessGame = {
                 guessGame.splitAnswer.splice(i,0);
             }
         }
+
+        //Misc. console logs
+        console.clear();
+        console.log("Current Answer: " + guessGame.currentAnswer);
+        console.log("Current Hint: " + guessGame.hint);
+        console.log("Split Answer: " + guessGame.splitAnswer);
+        console.log("Split Answer Length: " + guessGame.splitAnswer.length);
+        console.log("Number of Spaces: " + guessGame.spaces);
+        console.log(guessGame.winPic);
+        console.log(guessGame.winUrl);
     },
 
     //Resets the game after running out of guesses or completing the word
@@ -171,15 +181,8 @@ var guessGame = {
 guessGame.initialize();
 guessGame.initDifficulty();
 guessGame.setDifficulty();
-guessGame.guessesLeft = guessGame.setDifficulty(),
-console.log("Current Answer: " + guessGame.currentAnswer);
-console.log("Current Hint: " + guessGame.hint);
-console.log("Split Answer: " + guessGame.splitAnswer);
-console.log("Split Answer Length: " + guessGame.splitAnswer.length);
-console.log("Number of Spaces: " + guessGame.spaces);
-console.log(guessGame.winPic);
-console.log(guessGame.winUrl);
-console.log("Guesses based on difficulty: " + guessGame.setDifficulty())
+guessGame.guessesLeft = guessGame.setDifficulty();
+console.log("Guesses based on difficulty: " + guessGame.setDifficulty());
 
 //Primary logic for game
 document.onkeyup = function(event) {
