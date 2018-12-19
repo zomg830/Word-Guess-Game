@@ -73,6 +73,7 @@ h3, p{
 #resetBtn, #characterUrl{
     margin:0;
     padding:0;
+    margin-bottom:10px;
 }
 
 #resetBtn a, #characterUrl a{
@@ -124,7 +125,7 @@ h3, p{
 
 @media screen and (min-width: 425px) and (max-width: 640px) {
     h3, p{
-        font-size: 0.75rem;
+        font-size: 0.65rem;
     }
 
     #resetBtn a, #characterUrl a {
@@ -143,11 +144,21 @@ h3, p{
         display:block;
         margin:auto;
     }  
+
+    #github a{
+        justify-content: space-evenly;
+        align-content: center;
+        vertical-align: middle;
+        margin-left:1.2vw;
+        margin-right:1.2vw;
+        font-size:0.75rem;
+        padding:5px;
+    }
 }
 
 @media screen and (max-width: 424px) {
     h3, p{
-        font-size: 0.55rem;
+        font-size: 0.56rem;
     }
 
     #resetBtn a, #characterUrl a {
