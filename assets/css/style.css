@@ -94,4 +94,22 @@ h3, p{
     #resetBtn a, #characterUrl a {
        font-size: 1.5vw
     }
+
+    #characterPic img{
+        max-width:50vw;
+        position:relative;
+        padding:5px;
+        display:block;
+        margin:auto;
+    }
   }
+
+@media screen and (max-width: 640px) {
+    #characterPic img{
+        max-width:75vw;
+        position:relative;
+        padding:5px;
+        display:block;
+        margin:auto;
+    }  
+}
