@@ -1,4 +1,4 @@
-#Homework Assignment 3: JavaScript Hangman!
+# Homework Assignment 3: JavaScript Hangman!
 
 ## Overview
 
