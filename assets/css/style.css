@@ -60,14 +60,6 @@ h3, p{
     color:white;
 }
 
-#characterPic img{
-    max-width:57.5vw;
-    position:relative;
-    padding:5px;
-    display:block;
-    margin:auto;
-}
-
 #logo{
     max-height:100vh;
     max-width:50vw;
@@ -98,12 +90,12 @@ h3, p{
 
 @media screen and (min-width: 768px) {
     #resetBtn a, #characterUrl a {
-       font-size: 1.5vw;
+       font-size: 1.4vw;
        font-family: 'Space Mono', monospace;
     }
 
     #characterPic img{
-        max-width:50vw;
+        max-width:45vw;
         position:relative;
         padding:5px;
         display:block;
@@ -111,7 +103,39 @@ h3, p{
     }
   }
 
-@media screen and (max-width: 640px) {
+@media screen and (min-width: 641px) and (max-width: 767px){
+    h3, p{
+        font-size: 0.95rem;
+    }
+
+    #resetBtn a, #characterUrl a {
+        font-size: 1.6vw;
+        font-family: 'Space Mono', monospace;
+     }
+
+    #characterPic img{
+        max-width:65vw;
+        position:relative;
+        padding:5px;
+        display:block;
+        margin:auto;
+    } 
+}
+
+@media screen and (min-width: 425px) and (max-width: 640px) {
+    h3, p{
+        font-size: 0.75rem;
+    }
+
+    #resetBtn a, #characterUrl a {
+        font-size: 1.6vw;
+        font-family: 'Space Mono', monospace;
+     }
+
+    #copyright{
+        font-size:0.8rem;
+    }
+
     #characterPic img{
         max-width:75vw;
         position:relative;
@@ -119,4 +143,41 @@ h3, p{
         display:block;
         margin:auto;
     }  
+}
+
+@media screen and (max-width: 424px) {
+    h3, p{
+        font-size: 0.55rem;
+    }
+
+    #resetBtn a, #characterUrl a {
+        font-size: 1.7vw;
+        font-family: 'Space Mono', monospace;
+     }
+
+    #characterPic img{
+        max-width:75vw;
+        position:relative;
+        padding:5px;
+        display:block;
+        margin:auto;
+    }  
+
+    #copyright{
+        display:none;
+    }
+
+    #github a{
+        justify-content: space-evenly;
+        align-content: center;
+        vertical-align: middle;
+        margin-left:1.2vw;
+        margin-right:1.2vw;
+        font-size:0.75rem;
+        padding:5px;
+    }
+
+    #navtext{
+        font-size: 0.9rem;
+    }
 }
