@@ -119,7 +119,7 @@ var guessGame = {
     //Displays the pictures from picArray and creates a button that links to the wiki page in urlArray. Also creates reset button.
     winDisplay: function(){
         var winDispPic = 
-        "<img src=" + guessGame.winPic + ">";
+        "<img src=" + guessGame.winPic + " onload=guessGame.fade(this)>";
         document.getElementById("characterPic").innerHTML = winDispPic;
         var winDispUrl = 
         '<a href=' + guessGame.winUrl + ' target="_blank" class="btn-sm btn-secondary">Click to visit the wiki!</a>';
@@ -163,6 +163,9 @@ var guessGame = {
             return 6;
         }
     },
+    fade: function fadeIn(obj) {
+        $(obj).fadeIn(1000);
+    }
 }
 //End of guessGame object
 
