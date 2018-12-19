@@ -16,6 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script>
+    //jQuery script to fade in character picture upon winning
     window.fadeIn = function(obj) {
         $( "chracterPic").fadeIn();
         $(obj).fadeIn(1000);
@@ -23,6 +24,7 @@
     </script>
 </head>
 <body>
+    <!--Bootstrap Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand navbar-light" id="navtext">The Greatest Hangman Game Ever!</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +39,9 @@
             </ul>
         </div>
     </nav>
+    <!--Bootstrap Navbar-->
 
+    <!--Jumbotron to hold page content-->
     <div class="jumbotron text-center">
         <div ><img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/The_Expanse_logo.png" class="img-fluid" id="logo"></div>
         <h3>Based on the Book and Television series 'The Expanse'</h3>
@@ -53,9 +57,9 @@
                 <div class="col-12 text-center" id="characterPic"></div>
             </div>
     </div>
+    <!--Jumbotron to hold page content-->
 
-
-
+    <!--Footer to hold "copyright" and social media icons-->
     <footer class="footer bg-dark clear-top">
         <div class="container">
             <div id="copyright" class="row" style="justify-content: center">
@@ -68,6 +72,9 @@
             </div>
         </div>
     </footer>
-<script src="assets/javascript/game.js"></script>
+    <!--Footer to hold "copyright" and social media icons-->
+
+    <!--Link to game.js as it has issues with HTML elements initializing after loading game.js file-->
+    <script src="assets/javascript/game.js"></script>
 </body>
 </html>

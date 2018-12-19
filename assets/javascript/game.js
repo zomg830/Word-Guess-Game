@@ -10,6 +10,8 @@ var picArray = ["assets/images/Holden.jpg", "assets/images/Nagata.jpg", "assets/
 
 //Attempting to create game as object, as specified in readme
 var guessGame = {
+    
+    //First we initialize some object properties
     hint: "",
     currentAnswer: "",
     wins: 0,
@@ -23,8 +25,10 @@ var guessGame = {
     winPic: "",
     winUrl: "",
     difficulty: "",
+
+    //Initialize function called to begin the game
     initialize: function() {
-        //Generates a random number to pull out an answer and hint
+        //Generates a random number to pull out an answer along with the corresponding hint, url to wiki, and pic
         var r = Math.floor(Math.random() * answerArray.length);
         guessGame.currentAnswer = answerArray[r];
         guessGame.hint = hintArray[r];
@@ -38,16 +42,16 @@ var guessGame = {
             guessGame.reload();
         }
 
-        //Remove answer and hint once pulled
+        //Remove answer and hint once used in a game session
         answerArray.splice(r,1);
         hintArray.splice(r,1);
         urlArray.splice(r,1);
         picArray.splice(r,1);
 
-        //Using an onload event handler to initialize some HTML content
+        //Using an onload event handler to write in some HTML content when entering page
         window.onload = function(){
             var disp = 
-            "<p>Hint: " + guessGame.hint + "</p>" + 
+            "<p>Hint: " + guessGame.hint + "</p>" +
             "<p>Wins: " + guessGame.wins + "</p>" + 
             "<p>Number of Guesses Remaining: " + guessGame.guessesLeft + "</p>" + 
             "<p>Incorrect Guesses: " + incorrect + "</p>"
@@ -63,8 +67,7 @@ var guessGame = {
             }
         }
 
-
-        //Split the array item into individual letters to allow indexing based on user input
+        //Initializes the hiddenAnswer array, displayed on the page as a bunch of underscores
         guessGame.hiddenAnswer = new Array (guessGame.currentAnswer.length);
         guessGame.hiddenAnswer = guessGame.hiddenAnswer.fill("_");
 
@@ -74,10 +77,8 @@ var guessGame = {
                 guessGame.hiddenAnswer[i] = "&nbsp";
             }
         }
-
-        //console.log("Length of 'hiddenAnswer' array: " + guessGame.hiddenAnswer.length);
         
-        // Splits the answer array
+        // Splits the answer array into individual characters, writes the hiddenAnswer array onto the page
         guessGame.splitAnswer = guessGame.currentAnswer.split("");
         document.getElementById("answer").innerHTML = (guessGame.hiddenAnswer);
         for (var i = 0; i < guessGame.splitAnswer.length; i++){
@@ -95,7 +96,7 @@ var guessGame = {
         console.log("Number of Spaces: " + guessGame.spaces);
         console.log(guessGame.winPic);
         console.log(guessGame.winUrl);
-    },
+    }, //End of initialize function
 
     //Resets the game after running out of guesses or completing the word
     reset: function (){
@@ -112,9 +113,9 @@ var guessGame = {
         document.getElementById("characterPic").innerHTML = "";
         document.getElementById("characterUrl").innerHTML = "";
         document.getElementById("resetBtn").innerHTML = ""; 
-    },
+    }, //End of reset function
 
-    //Updates the HTML window
+    //Updates the HTML window - see game logic below for usage
     update: function (){
         var disp = 
         "<p>Hint: " + guessGame.hint + "</p>" + 
@@ -123,8 +124,7 @@ var guessGame = {
         "<p>Incorrect Guesses: " + incorrect + "</p>"
         document.getElementById("disp").innerHTML = disp;
         document.getElementById("answer").innerHTML = "<h3>" + (guessGame.hiddenAnswer.join(" ")) + "</h3>";
-        //console.log(guessGame.hiddenAnswer);
-    },
+    }, //End of update function
 
     //Displays the pictures from picArray and creates a button that links to the wiki page in urlArray. Also creates reset button.
     winDisplay: function(){
@@ -137,29 +137,29 @@ var guessGame = {
         var resetBtn = 
         '<a href="#" class="btn-sm btn-secondary" onclick="guessGame.reset()">Click for the next word!</a>';
         document.getElementById("resetBtn").innerHTML = resetBtn;
-    },
+    }, //End of winDisplay function
 
-    //Reloads the game after exhausting all the answers
+    //Refreshes the browser window after exhausting all the answers
     reload: function(){
         window.location.reload();
-    },
+    }, //End of reload function
 
     //Prompts the user to input the difficulty at the initialization of the game session
     initDifficulty: function(){
-        var difficulty = prompt('Select your difficulty by typing "Ensign" (beginner - 10 guesses), "Captain" (medium - 8 guesses), or "Admiral" (hard - 6 guesses)');
-        if (difficulty==="Ensign" || difficulty==="ensign"){
+        var difficulty = prompt('Select your difficulty by typing "Ensign" (beginner - 10 guesses), "Captain" (medium - 8 guesses), or "Admiral" (hard - 6 guesses)').toLowerCase();
+        if (difficulty==="ensign"){
             guessGame.difficulty = "1";
         }
-        else if (difficulty==="Captain" || difficulty==="captain"){
+        else if (difficulty==="captain"){
             guessGame.difficulty = "2";
         }
-        else if (difficulty==="Admiral" || difficulty==="admiral"){
+        else if (difficulty==="admiral"){
             guessGame.difficulty = "3";
         }
         else {
             guessGame.initDifficulty();
         }
-    },
+    }, //End of initDifficulty function
 
     //Function is called by the guessesLeft property to set the number of incorrect guesses allowed based on difficulty
     setDifficulty: function(){
@@ -172,56 +172,56 @@ var guessGame = {
         if (guessGame.difficulty==="3"){
             return 6;
         }
-    },
+    }, //End of setDifficulty function
 }
 //End of guessGame object
 
 
-//Initialize the game with some console logs for debugging
-guessGame.initialize();
-guessGame.initDifficulty();
+//Calls various functions from the guessGame object above
+guessGame.initialize(); 
+guessGame.initDifficulty(); 
 guessGame.setDifficulty();
 guessGame.guessesLeft = guessGame.setDifficulty();
 console.log("Guesses based on difficulty: " + guessGame.setDifficulty());
 
 //Primary logic for game
 document.onkeyup = function(event) {
-    var counter = 0; //index counter, if it returns -1, letter does not exist 
+    var counter = 0;  
     var userGuess = String.fromCharCode(event.keyCode).toUpperCase(); //Takes keyboard input from user, capitalizes it
 
     //Begin primary if statement
-    if (guessGame.lettersUsed.indexOf(userGuess) < 0){ 
-        for (var i = 0; i < guessGame.splitAnswer.length; i++){
-            if (userGuess === guessGame.splitAnswer[i]){
+    if (guessGame.lettersUsed.indexOf(userGuess) < 0){ //Prevents user from inputting duplicate letters, returns -1 if letter has NOT been used so if statment is allowed to proceed
+        for (var i = 0; i < guessGame.splitAnswer.length; i++){ //Loops through the splitAnswer array generated in the initialize function above
+            if (userGuess === guessGame.splitAnswer[i]){ //If the user input matches a letter in the split answer array, statement continues
                 console.log(guessGame.splitAnswer[i] + " Match!");
-                guessGame.hiddenAnswer[i] = userGuess;
+                guessGame.hiddenAnswer[i] = userGuess; //Adds the letter to the hiddenAnswer array to be displayed on the web page
                 console.log("Answer Progress: " + guessGame.hiddenAnswer);
-                guessGame.victoryCounter++;
+                guessGame.victoryCounter++; //Victory counter variable increases by 1
                 console.log("Victory Counter: " + guessGame.victoryCounter);
-                counter++;
-                guessGame.lettersUsed += userGuess;
+                counter++; //Increases counter variable so as to not invoke the "if (counter===0)" loop below
+                guessGame.lettersUsed += userGuess; //Adds correct guess to the lettersUsed array
                 console.log(guessGame.lettersUsed);
                 console.log("Victory counter : " + guessGame.victoryCounter);
-                if (guessGame.victoryCounter === (guessGame.splitAnswer.length - guessGame.spaces)){
-                    guessGame.wins++;
-                    alert ("Your score is: " + guessGame.wins + " wins");
-                    // guessGame.reset();
-                    guessGame.winDisplay();
+                if (guessGame.victoryCounter === (guessGame.splitAnswer.length - guessGame.spaces)){ //Win condition logic, number of items in array minus the spaces
+                    guessGame.wins++; //Increments your wins by 1
+                    alert ("Your score is: " + guessGame.wins + " wins"); //Displays an alert with the total number of wins in the game session
+                    guessGame.winDisplay(); //Calls the winDisplay function in the guessGame object above
                 }
             }
         }
-        if (counter === 0){
-            guessGame.guessesLeft = guessGame.guessesLeft - 1;
-            guessGame.lettersUsed += userGuess;
-            incorrect += " " + userGuess;
-            guessGame.update();
-        }
-        counter = 0;
 
-        guessGame.update();
-        if (guessGame.guessesLeft === 0){
-            alert("You are out of guesses, please try again.")
-            guessGame.reset();
+        if (counter === 0){ //If the user input does not match any letters in the splitAnswer array, statement continues
+            guessGame.guessesLeft--; //Decreases the guessGame.guessesLeft property by 1
+            guessGame.lettersUsed += userGuess; //Adds the incorrect guess to the lettersUsed array
+            incorrect += " " + userGuess; //Adds the incorrect guess to the incorrect array to be displayed on the page
+            guessGame.update(); //Calls the update function in the guessGame object above
+        }
+
+        // counter = 0; Relic of previous version, scared to delete it
+        guessGame.update(); //Calls the update function in the guessGame object above
+        if (guessGame.guessesLeft === 0){ //If you exhaust your guesses, statment continues
+            alert("You are out of guesses, please try again.") //Displays an alert 
+            guessGame.reset(); //Calls the reset function in the guessGame object above
         }
     }
 }
