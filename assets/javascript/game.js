@@ -140,11 +140,14 @@ var guessGame = {
         if (difficulty==="Ensign" || difficulty==="ensign"){
             guessGame.difficulty = "1";
         }
-        if (difficulty==="Captain" || difficulty==="captain"){
+        else if (difficulty==="Captain" || difficulty==="captain"){
             guessGame.difficulty = "2";
         }
-        if (difficulty==="Admiral" || difficulty==="admiral"){
+        else if (difficulty==="Admiral" || difficulty==="admiral"){
             guessGame.difficulty = "3";
+        }
+        else {
+            guessGame.initDifficulty();
         }
     },
 
