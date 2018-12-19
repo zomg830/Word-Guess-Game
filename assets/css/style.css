@@ -4,6 +4,7 @@ body, html{
 
 h3, p{
     font-size: 1.1rem;
+    font-family: 'Space Mono', monospace;
 }
 
 
@@ -26,6 +27,7 @@ h3, p{
 
 .btn-sm {
     font-size: 0.9rem;
+    font-family: 'Space Mono', monospace;
     width:45%;
 }
 
@@ -55,7 +57,6 @@ h3, p{
 }
 
 #copyright{
-    font-family:font-family: 'Space Mono', monospace;
     color:white;
 }
 
@@ -84,15 +85,21 @@ h3, p{
 
 #resetBtn a, #characterUrl a{
     font-size:2vw;
+    font-family: 'Space Mono', monospace;
 }
 
 .navbar-dark{
     color:white;
 }
 
+.hvr-underline-from-center::before{
+    background:white;
+}
+
 @media screen and (min-width: 768px) {
     #resetBtn a, #characterUrl a {
-       font-size: 1.5vw
+       font-size: 1.5vw;
+       font-family: 'Space Mono', monospace;
     }
 
     #characterPic img{
