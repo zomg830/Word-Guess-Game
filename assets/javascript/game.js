@@ -203,6 +203,8 @@ document.onkeyup = function(event) {
                 console.log(guessGame.lettersUsed);
                 console.log("Victory counter : " + guessGame.victoryCounter);
                 if (guessGame.victoryCounter === (guessGame.splitAnswer.length - guessGame.spaces)){ //Win condition logic, number of items in array minus the spaces
+                    var audio = new Audio("https://upload.wikimedia.org/wikipedia/commons/d/d9/Wilhelm_Scream.ogg");
+                    audio.play();
                     guessGame.wins++; //Increments your wins by 1
                     alert ("Your score is: " + guessGame.wins + " wins"); //Displays an alert with the total number of wins in the game session
                     guessGame.winDisplay(); //Calls the winDisplay function in the guessGame object above
