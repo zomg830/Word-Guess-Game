@@ -88,14 +88,14 @@ var guessGame = {
         }
 
         //Misc. console logs
-        console.clear();
-        console.log("Current Answer: " + guessGame.currentAnswer);
-        console.log("Current Hint: " + guessGame.hint);
-        console.log("Split Answer: " + guessGame.splitAnswer);
-        console.log("Split Answer Length: " + guessGame.splitAnswer.length);
-        console.log("Number of Spaces: " + guessGame.spaces);
-        console.log(guessGame.winPic);
-        console.log(guessGame.winUrl);
+        // console.clear();
+        // console.log("Current Answer: " + guessGame.currentAnswer);
+        // console.log("Current Hint: " + guessGame.hint);
+        // console.log("Split Answer: " + guessGame.splitAnswer);
+        // console.log("Split Answer Length: " + guessGame.splitAnswer.length);
+        // console.log("Number of Spaces: " + guessGame.spaces);
+        // console.log(guessGame.winPic);
+        // console.log(guessGame.winUrl);
     }, //End of initialize function
 
     //Resets the game after running out of guesses or completing the word
@@ -182,7 +182,7 @@ guessGame.initialize();
 guessGame.initDifficulty(); 
 guessGame.setDifficulty();
 guessGame.guessesLeft = guessGame.setDifficulty();
-console.log("Guesses based on difficulty: " + guessGame.setDifficulty());
+// console.log("Guesses based on difficulty: " + guessGame.setDifficulty());
 
 //Primary logic for game
 document.onkeyup = function(event) {
@@ -193,15 +193,15 @@ document.onkeyup = function(event) {
     if (guessGame.lettersUsed.indexOf(userGuess) < 0){ //Prevents user from inputting duplicate letters, returns -1 if letter has NOT been used so if statment is allowed to proceed
         for (var i = 0; i < guessGame.splitAnswer.length; i++){ //Loops through the splitAnswer array generated in the initialize function above
             if (userGuess === guessGame.splitAnswer[i]){ //If the user input matches a letter in the split answer array, statement continues
-                console.log(guessGame.splitAnswer[i] + " Match!");
+                // console.log(guessGame.splitAnswer[i] + " Match!");
                 guessGame.hiddenAnswer[i] = userGuess; //Adds the letter to the hiddenAnswer array to be displayed on the web page
-                console.log("Answer Progress: " + guessGame.hiddenAnswer);
+                // console.log("Answer Progress: " + guessGame.hiddenAnswer);
                 guessGame.victoryCounter++; //Victory counter variable increases by 1
-                console.log("Victory Counter: " + guessGame.victoryCounter);
+                // console.log("Victory Counter: " + guessGame.victoryCounter);
                 counter++; //Increases counter variable so as to not invoke the "if (counter===0)" loop below
                 guessGame.lettersUsed += userGuess; //Adds correct guess to the lettersUsed array
-                console.log(guessGame.lettersUsed);
-                console.log("Victory counter : " + guessGame.victoryCounter);
+                // console.log(guessGame.lettersUsed);
+                // console.log("Victory counter : " + guessGame.victoryCounter);
                 if (guessGame.victoryCounter === (guessGame.splitAnswer.length - guessGame.spaces)){ //Win condition logic, number of items in array minus the spaces
                     var audio = new Audio('assets/sounds/winSound.mp3');
                     audio.play();
