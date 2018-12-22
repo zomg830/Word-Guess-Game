@@ -188,6 +188,7 @@ guessGame.guessesLeft = guessGame.setDifficulty();
 document.onkeyup = function(event) {
     var counter = 0;  
     var userGuess = String.fromCharCode(event.keyCode).toUpperCase(); //Takes keyboard input from user, capitalizes it
+    console.log(userGuess);
 
     //Begin primary if statement
     if (guessGame.lettersUsed.indexOf(userGuess) < 0){ //Prevents user from inputting duplicate letters, returns -1 if letter has NOT been used so if statment is allowed to proceed
@@ -222,8 +223,9 @@ document.onkeyup = function(event) {
         // counter = 0; Relic of previous version, scared to delete it
         guessGame.update(); //Calls the update function in the guessGame object above
         if (guessGame.guessesLeft === 0){ //If you exhaust your guesses, statment continues
-            alert("You are out of guesses, please try again.") //Displays an alert 
-            guessGame.reset(); //Calls the reset function in the guessGame object above
+            setTimeout(function() {alert("You are out of guesses, please try again.");
+            guessGame.reset();
+            },50); //Displays an alert with an alert to allow time to log the last incorrect guess
         }
     }
 }
