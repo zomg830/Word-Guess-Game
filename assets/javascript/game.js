@@ -225,7 +225,7 @@ document.onkeyup = function(event) {
         if (guessGame.guessesLeft === 0){ //If you exhaust your guesses, statment continues
             setTimeout(function() {alert("You are out of guesses, please try again.");
             guessGame.reset();
-            },40); //Displays an alert with an alert to allow time to log the last incorrect guess
+            },50); //Displays an alert with an alert to allow time to log the last incorrect guess
         }
     }
 }
