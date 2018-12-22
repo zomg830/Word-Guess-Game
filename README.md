@@ -16,7 +16,7 @@ In this assignment, I created a "Word Guess" game similar to the classic game "H
 
 * If you don't guess the correct answer by exhausting your remaining guesses, the web page will reset and another random word and hint will be generated. If you successfully guess the answer, an image and link to the wiki will be generated, click the reset button to clear the character image + wiki link and generate another answer.
 
-* After a answer has been used once it will not appear again in the same game session. Refreshing the page will refresh the answer bank but also reset your wins. Try to get as high of a score as possible in the same game session!
+* After an answer has been used once it will not appear again in the same game session. Refreshing the page will refresh the answer bank but also reset your wins. Try to get as high of a score as possible in the same game session!
 
 * There is no need to include spaces in your guesses, and all guesses are strictly alphabet characters. Attempting to use punctuation or letters will lead to some... interesting results being displayed in the "Incorrect Guesses" field.
 
